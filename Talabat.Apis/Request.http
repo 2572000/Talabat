@@ -1,0 +1,10 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@BaseUrl =https://localhost:7059
+
+
+### Get All Products
+GET {{BaseUrl}}/api/product
+
+
+### Get Product By Id
+GET {{BaseUrl}}/api/product/15
