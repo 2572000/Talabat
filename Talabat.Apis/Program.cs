@@ -1,6 +1,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
+using Talabat.Apis.Helpers;
 using Talabat.Core.Repository.contract;
 using Talabat.Infrastructure;
 using Talabat.Infrastructure.Data;
@@ -26,7 +27,7 @@ namespace Talabat.Apis
             });
 
             builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-
+            builder.Services.AddAutoMapper(typeof(MappingProfiles));
             #endregion
 
             var app = builder.Build();
@@ -55,6 +56,7 @@ namespace Talabat.Apis
 
 
             #endregion
+            app.UseStaticFiles();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
